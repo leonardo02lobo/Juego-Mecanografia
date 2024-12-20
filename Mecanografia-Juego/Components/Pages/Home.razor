@@ -1,0 +1,192 @@
+﻿@page "/Game"
+@rendermode InteractiveServer
+@using Datos
+
+<style>
+    .teclado {
+        width: 400px;
+        height: 30px;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .game {
+        display: inline-block;
+        border: 2px solid rgb(0, 0, 0);
+        justify-content: center;
+        align-items: center;
+        min-width: 50%;
+        height: 500px;
+        border-radius: 5px;
+        margin: 0 auto;
+
+        .palabra {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 50px auto;
+            padding: 20px;
+        }
+    }
+
+    .tiempo {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        font-family: Arial;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    p {
+        display: inline-block;
+        font-size: 30px;
+        font-family: Arial;
+        margin-left: 30px;
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+
+    .PalabraHecha {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        margin: 30px auto;
+        width: 50%;
+        height: 50px;
+        border: 2px solid rgb(0, 0, 0);
+        border-radius: 5px;
+
+        span {
+            font-size: 30px;
+            font-family: Arial;
+            text-align: center;
+            color: green;
+        }
+    }
+
+    input {
+        margin: 80px auto;
+    }
+
+    .ganador {
+        display: flex;
+        text-align: center;
+        flex-direction: row;
+        font-size: 30px;
+        background-color: white;
+        color: black;
+        font-family: Arial;
+        justify-content: center;
+        align-content: center;
+    }
+</style>
+<PageTitle>Mecanografia-Game</PageTitle>
+
+<div class="game">
+    <span class="tiempo">@minutos : @segundos</span>
+    <div class="palabra">
+        @if (palabra != null)
+        {
+            @foreach (string palabraLetra in palabra)
+            {
+                <p>@palabraLetra</p>
+            }
+        }
+    </div>
+</div>
+<div class="PalabraHecha">
+    @if (Error != "")
+    {
+        <span>@Error</span>
+    }
+    else
+    {
+        <span>Cuando termines la palabra. Presionar Enter</span>
+    }
+</div>
+<input type="text" class="teclado" @onkeydown="teclaPresionada" placeholder="Escribir la palabra" @bind="presionado"
+    disabled="@inputHabilitado" />
+
+@if (band)
+{
+    <span class="ganador">Felicidades has terminado el juego con un total de @totalPalabras</span>
+}
+
+@code {
+    private string presionado = "", Error = "";
+    private int i = 0;
+    private string[]? palabra;
+    private int minutos = 5, segundos = 0, totalPalabras = 0;
+    private Timer? cronometro;
+    private bool band = false, inputHabilitado = false;
+
+    protected override void OnInitialized()
+    {
+        Tiempo();
+        palabra = Datos.palabras[i].ToCharArray().Select(x => x.ToString()).ToArray();
+    }
+
+    private async Task teclaPresionada(KeyboardEventArgs e)
+    {
+        try
+        {
+            if (Datos.palabras[i].ToLower() == e.Key.ToLower())
+            {
+                presionado += e.Key;
+            }
+        }
+        catch (IndexOutOfRangeException ex)
+        {
+            Error = ex.Message;
+        }
+        if (palabra != null)
+        {
+            if (string.Join("", palabra).ToLower() == presionado.ToLower())
+            {
+                await Task.Delay(1);
+                CambiarPalabra();
+            }
+        }
+    }
+    private void CambiarPalabra()
+    {
+        presionado = "";
+        i++;
+        totalPalabras++;
+        if (i < Datos.palabras.Length)
+        {
+            palabra = Datos.palabras[i].ToCharArray().Select(x => x.ToString()).ToArray();
+        }
+    }
+
+    private void Tiempo()
+    {
+        cronometro = new Timer(ActualizarTiempo, null, 0, 1000);
+    }
+
+    private void ActualizarTiempo(object? state)
+    {
+        if (segundos == 0)
+        {
+            minutos--;
+            segundos = 59;
+        }
+        else
+        {
+            segundos--;
+        }
+        if ((minutos == 0 && segundos == 0) || Datos.palabras.Length == totalPalabras)
+        {
+            cronometro?.Dispose();
+            band = true;
+            inputHabilitado = true;
+        }
+        InvokeAsync(StateHasChanged);
+    }
+}

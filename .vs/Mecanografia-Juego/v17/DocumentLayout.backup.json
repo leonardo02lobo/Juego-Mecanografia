@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\equipo\\Documents\\Lenguajes de Programacion\\C#\\PROYECTOS\\Mecanografia-Juego\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A8143527-CFAB-4A02-A4BE-7A9F591E5D2A}|Mecanografia-Juego\\Mecanografia-Juego.csproj|c:\\users\\equipo\\documents\\lenguajes de programacion\\c#\\proyectos\\mecanografia-juego\\mecanografia-juego\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8143527-CFAB-4A02-A4BE-7A9F591E5D2A}|Mecanografia-Juego\\Mecanografia-Juego.csproj|solutionrelative:mecanografia-juego\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8143527-CFAB-4A02-A4BE-7A9F591E5D2A}|Mecanografia-Juego\\Mecanografia-Juego.csproj|c:\\users\\equipo\\documents\\lenguajes de programacion\\c#\\proyectos\\mecanografia-juego\\mecanografia-juego\\models\\datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8143527-CFAB-4A02-A4BE-7A9F591E5D2A}|Mecanografia-Juego\\Mecanografia-Juego.csproj|solutionrelative:mecanografia-juego\\models\\datos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Datos.cs",
+              "DocumentMoniker": "C:\\Users\\equipo\\Documents\\Lenguajes de Programacion\\C#\\PROYECTOS\\Mecanografia-Juego\\Mecanografia-Juego\\Models\\Datos.cs",
+              "RelativeDocumentMoniker": "Mecanografia-Juego\\Models\\Datos.cs",
+              "ToolTip": "C:\\Users\\equipo\\Documents\\Lenguajes de Programacion\\C#\\PROYECTOS\\Mecanografia-Juego\\Mecanografia-Juego\\Models\\Datos.cs",
+              "RelativeToolTip": "Mecanografia-Juego\\Models\\Datos.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAA6wA8AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T04:56:43.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\equipo\\Documents\\Lenguajes de Programacion\\C#\\PROYECTOS\\Mecanografia-Juego\\Mecanografia-Juego\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "Mecanografia-Juego\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\equipo\\Documents\\Lenguajes de Programacion\\C#\\PROYECTOS\\Mecanografia-Juego\\Mecanografia-Juego\\Components\\Pages\\Home.razor*",
+              "RelativeToolTip": "Mecanografia-Juego\\Components\\Pages\\Home.razor*",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAuwG0AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T00:16:36.368Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

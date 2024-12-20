@@ -1,0 +1,95 @@
+@page "/"
+@rendermode InteractiveServer
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        justify-content: center;
+        margin: 20px auto;
+        align-items: center;
+        border-radius: 20px;
+        outline:1px solid gray;
+    }
+
+    .Inicio {
+        display: inline-block;
+        margin: 0;
+
+        h1 {
+            font-size: 30px;
+            font-family: Arial;
+        }
+    }
+
+    .tarjeta {
+        display: grid;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+        border: 2px solid gray;
+        border-radius: 2px;
+        box-shadow: 0 0 10px gray;
+        background-color: white;
+        transition-duration: .5s;
+    }
+    .imagen{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 100%;
+        }
+    }
+
+    .tarjeta:hover {
+        box-shadow: 0 0 20px gray;
+    }
+    .contenido {
+        padding: 20px;
+        width: 400px;
+        h5,p {
+            display: flex;
+            font-size: 20px;
+            font-family: Arial;
+        }
+    }
+    .botonposicion{
+        display: flex;
+        justify-content: right;
+
+    }
+    .boton{
+        display: inline-block;
+        background-color: rgb(10, 194, 194);
+        color: rgb(255, 255, 255);
+        padding: 15px;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        font-size: 20px;
+        font-family: Arial;
+        border-radius: 5px;
+    }
+</style>
+<PageTitle>Inicio</PageTitle>
+
+<div class="container">
+    <div class="Inicio">
+        <h1>Bienvenido a la mecanografia</h1>
+    </div>
+    <div class="tarjeta">
+        <div class="imagen">
+            <img src="https://static.typingclub.com/m/corp2/lessonplan-icons/typing1.png">
+        </div>
+        <div class="contenido">
+            <h5>Juego de Mecanografia</h5>
+            <p>Completa la mayor cantidad de palabras en el menor tiempo posible</p>
+            <div class="botonposicion">
+                <NavLink class="boton" href="/Game">Jugar</NavLink>
+            </div>
+        </div>
+    </div>
+</div>
